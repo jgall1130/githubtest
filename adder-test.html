@@ -1,0 +1,37 @@
+<script src="../tinytest.js"></script>
+<script>
+
+//Ex. 1:
+//forEach([1,2,3], function() {
+//  console.log('h1');
+//});    
+    
+//Ex. 2:
+//passing each element of the array into the callback function
+//forEach([1,2,3], function(number) {
+//  console.log(number);
+//});     
+    
+
+function forEach (array, callback) {
+    for (var i  = 0; i < array.length; i++) {
+        callback(array[i]);
+    }
+}
+    
+tests({
+  'It should run the callback function array.length times.': function() {
+      var counter = 0;
+      forEach([1,2,3], function() {
+        counter++
+       });    
+      eq(counter, 3);
+    },
+
+  'It should pass in the ith element as the 1st argument to the callback.': function() {
+      forEach([1], function(number) {
+        eq(1, number)
+       });    
+  }
+});
+</script>
